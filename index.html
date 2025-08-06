@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cravo e Canela Especiarias - Site em Construção</title>
+    <title>Cravo e Canela Especiarias - Sua loja de chimarrão!</title>
+    <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -16,16 +17,13 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #f3ebdb 0%, #e8d8c0 50%, #f3ebdb 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 20px 0;
             position: relative;
-            overflow: hidden;
         }
 
         /* Animação de fundo */
         .bg-animation {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -65,23 +63,28 @@
 
         /* Container principal */
         .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Seção do header */
+        .header-section {
             text-align: center;
             background: white;
-            padding: 60px 40px;
+            padding: 40px 30px 20px;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(133, 85, 29, 0.15);
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            z-index: 1;
+            box-shadow: 0 10px 30px rgba(133, 85, 29, 0.1);
             border: 3px solid #f3ebdb;
+            margin-bottom: 20px;
+            position: relative;
         }
 
         /* Logo da empresa */
         .company-logo {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 30px;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
             border-radius: 50%;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(133, 85, 29, 0.3);
@@ -94,67 +97,129 @@
             object-fit: cover;
         }
 
-        /* Ícone de construção animado */
-        .construction-icon {
-            font-size: 80px;
-            color: #85551d;
-            margin-bottom: 30px;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        /* Nome da empresa */
         .company-name {
-            font-size: 36px;
+            font-size: 28px;
             font-weight: bold;
             color: #85551d;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-shadow: 2px 2px 4px rgba(133, 85, 29, 0.1);
         }
 
         .company-subtitle {
-            font-size: 18px;
+            font-size: 16px;
             color: #a06b2a;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-style: italic;
+        }
+
+        /* Seção dos links */
+        .links-section {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(133, 85, 29, 0.15);
+            border: 3px solid #f3ebdb;
+            margin-bottom: 20px;
+        }
+
+        /* Botões de link */
+        .link-button {
+            display: block;
+            width: 100%;
+            margin: 15px 0;
+            padding: 18px 25px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+            border: 2px solid #e8d8c0;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(133, 85, 29, 0.2);
+            border-color: #85551d;
+            background: linear-gradient(135deg, #85551d, #a06b2a);
+            color: white;
+        }
+
+        .link-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .link-button:hover::before {
+            left: 100%;
+        }
+
+        .link-button i {
+            font-size: 20px;
+            min-width: 24px;
+        }
+
+        /* Cores específicas para cada botão */
+        .link-button.location i { color: #dc3545; }
+        .link-button.whatsapp i { color: #25d366; }
+        .link-button.store i { color: #007bff; }
+        .link-button.instagram i { color: #e1306c; }
+        .link-button.facebook i { color: #1877f2; }
+        .link-button.linkedin i { color: #0077b5; }
+
+        .link-button:hover i {
+            color: white;
+        }
+
+        /* Seção de construção */
+        .construction-section {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(133, 85, 29, 0.1);
+            border: 3px solid #f3ebdb;
         }
 
         .construction-badge {
             background: linear-gradient(45deg, #85551d, #a06b2a);
             color: white;
-            padding: 15px 30px;
+            padding: 12px 24px;
             border-radius: 50px;
-            font-size: 24px;
+            font-size: 18px;
             font-weight: bold;
             display: inline-block;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             box-shadow: 0 5px 20px rgba(133, 85, 29, 0.4);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
-        /* Descrição */
-        .description {
-            font-size: 18px;
+        .construction-text {
+            font-size: 16px;
             color: #666;
             line-height: 1.6;
-            margin-bottom: 40px;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 25px;
         }
 
-        /* Barra de progresso */
         .progress-container {
             background: #f3ebdb;
             border-radius: 20px;
-            height: 20px;
-            margin: 30px 0;
+            height: 15px;
+            margin: 20px 0;
             overflow: hidden;
             position: relative;
             border: 2px solid #e8d8c0;
@@ -193,65 +258,17 @@
             margin-top: 10px;
             color: #85551d;
             font-weight: bold;
-        }
-
-        /* Informações de contato */
-        .contact-info {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 2px solid #f3ebdb;
-        }
-
-        .contact-item {
-            display: inline-block;
-            margin: 10px 20px;
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
-
-        .contact-item:hover {
-            color: #85551d;
-        }
-
-        .contact-item i {
-            margin-right: 8px;
-            font-size: 18px;
-            color: #85551d;
-        }
-
-        /* Animação de loading */
-        .loading-dots {
-            display: inline-block;
-            margin-left: 10px;
-        }
-
-        .loading-dots span {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #85551d;
-            border-radius: 50%;
-            margin: 0 2px;
-            animation: loadingDots 1.4s ease-in-out infinite both;
-        }
-
-        .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
-        .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
-
-        @keyframes loadingDots {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
+            font-size: 14px;
         }
 
         /* Decoração temática */
         .spice-decoration {
-            position: absolute;
+            position: fixed;
             font-size: 24px;
             color: #85551d;
             opacity: 0.3;
             animation: float 8s ease-in-out infinite;
+            z-index: -1;
         }
 
         .spice-decoration:nth-child(1) {
@@ -278,34 +295,46 @@
             animation-delay: 6s;
         }
 
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
         /* Responsividade */
         @media (max-width: 768px) {
             .container {
-                padding: 40px 20px;
-                margin: 20px;
+                padding: 0 15px;
+            }
+            
+            .header-section, .links-section, .construction-section {
+                padding: 30px 20px;
             }
             
             .company-name {
-                font-size: 28px;
+                font-size: 24px;
             }
             
-            .construction-badge {
-                font-size: 18px;
-                padding: 12px 24px;
+            .company-subtitle {
+                font-size: 14px;
             }
             
-            .description {
-                font-size: 16px;
+            .link-button {
+                padding: 16px 20px;
+                font-size: 15px;
             }
             
-            .contact-item {
-                display: block;
-                margin: 15px 0;
+            .company-logo {
+                width: 100px;
+                height: 100px;
             }
 
-            .company-logo {
-                width: 120px;
-                height: 120px;
+            .construction-badge {
+                font-size: 16px;
+                padding: 10px 20px;
             }
         }
     </style>
@@ -320,52 +349,81 @@
     <div class="spice-decoration">🌶️</div>
     
     <div class="container">
-        <!-- Logo da empresa -->
-        <div class="company-logo">
-            <img src="imagens/logo.png" alt="Cravo e Canela Especiarias">
-        </div>
-        
-        <!-- Nome da empresa -->
-        <div class="company-name">Cravo e Canela Especiarias</div>
-        <div class="company-subtitle">Seu chimarrão com mais vida!</div>
-        
-        <!-- Ícone de construção -->
-        <div class="construction-icon">
-            <i class="fas fa-hard-hat"></i>
-        </div>
-        
-        <!-- Badge de construção -->
-        <div class="construction-badge">
-            Site em Construção
-        </div>
-        
-        <!-- Descrição -->
-        <div class="description">
-            Estamos preparando algo especial para você! Nossa nova plataforma digital está sendo cuidadosamente desenvolvida para oferecer a melhor experiência para nossos clientes.
-            <div class="loading-dots">
-                <span></span>
-                <span></span>
-                <span></span>
+        <!-- Seção Header -->
+        <div class="header-section">
+            <div class="company-logo">
+                <img src="imagens/logo.png" alt="Cravo e Canela Especiarias">
             </div>
+            
+            <div class="company-name">Cravo e Canela Especiarias</div>
+            <div class="company-subtitle">Sua loja de chimarrão!</div>
+        </div>
+
+        <!-- Seção de Links -->
+        <div class="links-section">
+            <a href="https://maps.app.goo.gl/w7ybyqTLwS1Z17cm6" target="_blank" class="link-button location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Nossa Loja Física</span>
+            </a>
+
+            <a href="https://chat.whatsapp.com/KVexc2sfEff9mNicMakmcC" target="_blank" class="link-button whatsapp">
+                <i class="fas fa-users"></i>
+                <span>Grupo do WhatsApp</span>
+            </a>
+
+            <a href="https://api.whatsapp.com/send?phone=5546999707517&text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos." target="_blank" class="link-button store">
+                <i class="fab fa-whatsapp"></i>
+                <span>Compre aqui!</span>
+            </a>
+
+            <a href="https://www.instagram.com/cravo_canelaespeciarias/" target="_blank" class="link-button instagram">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+
+            <a href="https://www.facebook.com/p/Cravo-e-Canela-Especiarias-100068454547930/" target="_blank" class="link-button facebook">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+
+            <a href="https://www.linkedin.com/company/cravo-e-canela-esp/" target="_blank" class="link-button linkedin">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+        </div>
+
+        <!-- Seção de Construção -->
+        <div class="construction-section">
+            <div class="construction-badge">
+                🚧 Site em Construção
+            </div>
+            
+            <div class="construction-text">
+                Estamos preparando algo especial para você! Nossa nova plataforma digital está sendo desenvolvida para oferecer a melhor experiência.
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="progress-text">75% Concluído</div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>
+                📧 <a href="mailto:contato@cravoecanelaesp.com.br" style="color: inherit; text-decoration: none;">
+                    contato@cravoecanelaesp.com.br
+                </a> |
+                📞 <a href="tel:+5546999707517" style="color: inherit; text-decoration: none;">
+                    (46) 99970-7517
+                </a>
+            </p>
+            <p style="margin-top: 10px; font-size: 12px; opacity: 0.7;">
+                © 2021 - 2025 Cravo e Canela Especiarias CNPJ: 53.346.990.0001-80 - Todos os direitos reservados
+            </p>
         </div>
         
-        <!-- Barra de progresso -->
-        <div class="progress-container">
-            <div class="progress-bar"></div>
-        </div>
-        <div class="progress-text">75% Concluído</div>
         
-        <!-- Informações de contato -->
-        <div class="contact-info">
-            <a href="mailto:contato@cravoecanelaesp.com.br" class="contact-item">
-                <i class="fas fa-envelope"></i>
-                contato@cravoecanelaesp.com.br
-            </a>
-            <a href="tel:+5546999717517" class="contact-item">
-                <i class="fas fa-phone"></i>
-                (46) 99970-7517
-            </a>
-        </div>
     </div>
 </body>
 </html>
